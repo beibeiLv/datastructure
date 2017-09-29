@@ -28,8 +28,7 @@ private static final String qaHost = "http://ocsnext.au.paradise.qa.ebay.com/ocs
 
 	private static void loadTopicIdURLMap() {
 		try {
-			File f = new File(
-					"C:\\doc\\helphub\\RedirectFile_generatedfromservice.csv");
+			File f = new File("C:\\doc\\helphub\\RedirectFile_generatedfromservice.csv");
 			BufferedReader reader = new BufferedReader(new FileReader(f));
 			String templine = null;
 			Pattern pattern = Pattern.compile("(?<=id=).*?(?=&|$)");
@@ -83,7 +82,7 @@ public static void main (String args []){
 			String directId = info[1];
 			Matcher matcher = pattern.matcher(origialId);
 			
-			if (matcher.find()) {
+			if (matcher.find()&& isNumeric(directId)) {
 				String topicId = matcher.group();
 			    StringBuffer sb2 = new StringBuffer();
 			    sb2.append(topicId);
@@ -127,6 +126,14 @@ public static void main (String args []){
 		e.printStackTrace();
 	}
 }
+private static boolean isNumeric(String str) {
 
+	Pattern pattern = Pattern.compile("[0-9]*");
+	Matcher isNum = pattern.matcher(str);
+	if (!isNum.matches()) {
+		return false;
+	}
+	return true;
+}
 }
 
