@@ -44,7 +44,7 @@ public class HelpHubCSVFileUtil {
 
 	private static void loadTopicIdURLMap() {
 		try {
-			File f = new File("C:\\doc\\helphub\\RedirectFile_generatedfromservice.csv");
+			File f = new File("C:\\doc\\helphub\\RedirectFile_generatedfromservice_V3.csv");
 			BufferedReader reader = new BufferedReader(new FileReader(f));
 			String templine = null;
 			Pattern pattern = Pattern.compile("(?<=id=).*?(?=&|$)");
@@ -55,12 +55,13 @@ public class HelpHubCSVFileUtil {
 
 				Matcher matcher = pattern.matcher(url);
 				if (matcher.find()) {
-					int idg1 = Integer.parseInt(matcher.group());
+					int idg1 = Integer.parseInt(matcher.group().trim());
 					topicId_url_Map.put(idg1, url);
 
 				}
 			}
 			reader.close();
+			System.out.println(topicId_url_Map.size());
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -71,7 +72,7 @@ public class HelpHubCSVFileUtil {
 
 	}
 	public static void exportFCFile(){
-		File outFile = new File("C:\\doc\\helphub\\ebay_ocs_redirects_file" + System.currentTimeMillis() + ".txt");
+		File outFile = new File("C:\\doc\\helphub\\ebay_ocs_redirects_file_v3_" + System.currentTimeMillis() + ".txt");
 		int i = 0;
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(outFile));
@@ -99,7 +100,7 @@ public class HelpHubCSVFileUtil {
 	
 	public static void exportTestFile(){
 		File outFile = new File("C:\\doc\\helphub\\urlOutPut" + System.currentTimeMillis() + ".txt");
-		File f = new File("C:\\doc\\helphub\\eBay_AU_OCS_Redirects_File_V4.csv");
+		File f = new File("C:\\doc\\helphub\\RedirectFile_generatedfromservice_V3.csv");
 	    Map<String, String>  map = new LinkedHashMap<String, String>();
 		int i = 0;
 		try {
@@ -196,7 +197,7 @@ public class HelpHubCSVFileUtil {
 
 	private static void loadDirectMap() {
 		try {
-			File f = new File("C:\\doc\\helphub\\eBay_AU_OCS_Redirects_File_V4.csv");
+			File f = new File("C:\\doc\\helphub\\eBay_AU_OCS_Redirects_File_V4_V2.csv");
 			BufferedReader reader = new BufferedReader(new FileReader(f));
 			String templine = null;
 			StringBuffer sb = new StringBuffer();
