@@ -1,0 +1,464 @@
+!SESSION 2017-07-06 10:17:15.195 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -showlocation -product com.ebay.tools.r2.product.ide
+Command-line arguments:  -data C:\Users\belv\datastructure -os win32 -ws win32 -arch x86_64 -showlocation -product com.ebay.tools.r2.product.ide
+
+!ENTRY org.eclipse.epp.mpc.core 4 0 2017-07-06 10:17:18.490
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.core [283]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"] because it is exposed to package 'org.apache.commons.logging' from resources org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"] and com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.commons.logging)(bundle-version>=1.0.4))
+     |
+    provide: osgi.wiring.bundle: org.apache.commons.logging
+  org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.http.impl.client)(version>=4.1.0))
+     |
+    export: osgi.wiring.package=org.apache.http.impl.client; uses:=org.apache.commons.logging
+  org.apache.httpcomponents.httpclient [osgi.identity; osgi.identity="org.apache.httpcomponents.httpclient"; type="osgi.bundle"; version:Version="4.3.6.v201411290715"]
+    import: (&(osgi.wiring.package=org.apache.commons.logging)(version>=1.1.1))
+     |
+    export: osgi.wiring.package: org.apache.commons.logging
+  com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.epp.mpc.ui 4 0 2017-07-06 10:17:18.657
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.ui [285]
+  Unresolved requirement: Require-Bundle: org.eclipse.epp.mpc.core; bundle-version="1.3.0"
+    -> Bundle-SymbolicName: org.eclipse.epp.mpc.core; bundle-version="1.3.2.v20141216-2136"; singleton:="true"
+       org.eclipse.epp.mpc.core [283]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"] because it is exposed to package 'org.apache.commons.logging' from resources org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"] and com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.commons.logging)(bundle-version>=1.0.4))
+     |
+    provide: osgi.wiring.bundle: org.apache.commons.logging
+  org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.http.impl.client)(version>=4.1.0))
+     |
+    export: osgi.wiring.package=org.apache.http.impl.client; uses:=org.apache.commons.logging
+  org.apache.httpcomponents.httpclient [osgi.identity; osgi.identity="org.apache.httpcomponents.httpclient"; type="osgi.bundle"; version:Version="4.3.6.v201411290715"]
+    import: (&(osgi.wiring.package=org.apache.commons.logging)(version>=1.1.1))
+     |
+    export: osgi.wiring.package: org.apache.commons.logging
+  com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-07-06 10:17:42.712
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-07-06 10:17:42.715
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\belv'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.ebay.tools.r2.server.tomcat 1 0 2017-07-06 10:18:02.396
+!MESSAGE Runtime created: Apache Tomcat v7.0
+
+!ENTRY com.ebay.tools.r2.server.core 1 0 2017-07-06 10:18:05.670
+!MESSAGE Server created: Tomcat v7.0 Server at localhost
+
+!ENTRY org.eclipse.ui 4 4 2017-07-06 10:18:06.243
+!MESSAGE Bad extension specification
+
+!ENTRY com.ebay.tools.r2.skipjar.generator 4 0 2017-07-06 10:18:06.244
+!MESSAGE startup class must implement org.eclipse.ui.IStartup
+
+!ENTRY se.ericsson.cade.eclipse.tools.common_prefs 1 0 2017-07-06 10:18:09.303
+!MESSAGE Log entries recorded when reading preference files
+!SUBENTRY 1 se.ericsson.cade.eclipse.tools.common_prefs 1 0 2017-07-06 10:18:09.303
+!MESSAGE Preferences from resource http://devtools/raptor/commonpref/ride50/ride_common_pref.epf read successfully.
+
+!ENTRY com.ebay.tools.dede.ui 4 0 2017-07-06 10:24:36.978
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in com.ebay.kernel.ede.dal.codegen.plugin.ActivatorUI.stop() of bundle com.ebay.tools.dede.ui.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:847)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.ui.part.MultiPageEditorPart.deactivateSite(MultiPageEditorPart.java:938)
+	at org.eclipse.ui.part.MultiPageEditorPart.dispose(MultiPageEditorPart.java:513)
+	at org.eclipse.ui.forms.editor.FormEditor.dispose(FormEditor.java:395)
+	at com.ebay.kernel.ede.dal.codegen.plugin.editors.CodeGenEditor.dispose(CodeGenEditor.java:317)
+	at com.ebay.kernel.ede.dal.codegen.plugin.ActivatorUI.stop(ActivatorUI.java:113)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	... 13 more
+Root exception:
+java.lang.NullPointerException
+	at org.eclipse.ui.part.MultiPageEditorPart.deactivateSite(MultiPageEditorPart.java:938)
+	at org.eclipse.ui.part.MultiPageEditorPart.dispose(MultiPageEditorPart.java:513)
+	at org.eclipse.ui.forms.editor.FormEditor.dispose(FormEditor.java:395)
+	at com.ebay.kernel.ede.dal.codegen.plugin.editors.CodeGenEditor.dispose(CodeGenEditor.java:317)
+	at com.ebay.kernel.ede.dal.codegen.plugin.ActivatorUI.stop(ActivatorUI.java:113)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Thread.java:745)
+!SESSION 2017-07-12 13:48:47.707 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -showlocation -product com.ebay.tools.r2.product.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -showlocation -product com.ebay.tools.r2.product.ide
+
+!ENTRY org.eclipse.epp.mpc.core 4 0 2017-07-12 13:48:55.459
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.core [283]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"] because it is exposed to package 'org.apache.commons.logging' from resources org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"] and com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.commons.logging)(bundle-version>=1.0.4))
+     |
+    provide: osgi.wiring.bundle: org.apache.commons.logging
+  org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.http.impl.client)(version>=4.1.0))
+     |
+    export: osgi.wiring.package=org.apache.http.impl.client; uses:=org.apache.commons.logging
+  org.apache.httpcomponents.httpclient [osgi.identity; osgi.identity="org.apache.httpcomponents.httpclient"; type="osgi.bundle"; version:Version="4.3.6.v201411290715"]
+    import: (&(osgi.wiring.package=org.apache.commons.logging)(version>=1.1.1))
+     |
+    export: osgi.wiring.package: org.apache.commons.logging
+  com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.epp.mpc.ui 4 0 2017-07-12 13:48:55.795
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.ui [285]
+  Unresolved requirement: Require-Bundle: org.eclipse.epp.mpc.core; bundle-version="1.3.0"
+    -> Bundle-SymbolicName: org.eclipse.epp.mpc.core; bundle-version="1.3.2.v20141216-2136"; singleton:="true"
+       org.eclipse.epp.mpc.core [283]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"] because it is exposed to package 'org.apache.commons.logging' from resources org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"] and com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.commons.logging)(bundle-version>=1.0.4))
+     |
+    provide: osgi.wiring.bundle: org.apache.commons.logging
+  org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.http.impl.client)(version>=4.1.0))
+     |
+    export: osgi.wiring.package=org.apache.http.impl.client; uses:=org.apache.commons.logging
+  org.apache.httpcomponents.httpclient [osgi.identity; osgi.identity="org.apache.httpcomponents.httpclient"; type="osgi.bundle"; version:Version="4.3.6.v201411290715"]
+    import: (&(osgi.wiring.package=org.apache.commons.logging)(version>=1.1.1))
+     |
+    export: osgi.wiring.package: org.apache.commons.logging
+  com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-07-12 13:49:29.249
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-07-12 13:49:29.252
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\belv'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 4 2017-07-12 13:49:35.210
+!MESSAGE Bad extension specification
+
+!ENTRY com.ebay.tools.r2.skipjar.generator 4 0 2017-07-12 13:49:35.210
+!MESSAGE startup class must implement org.eclipse.ui.IStartup
+
+!ENTRY com.ebay.tools.dede.ui 4 0 2017-07-12 13:50:53.291
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in com.ebay.kernel.ede.dal.codegen.plugin.ActivatorUI.stop() of bundle com.ebay.tools.dede.ui.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:847)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.ui.part.MultiPageEditorPart.deactivateSite(MultiPageEditorPart.java:938)
+	at org.eclipse.ui.part.MultiPageEditorPart.dispose(MultiPageEditorPart.java:513)
+	at org.eclipse.ui.forms.editor.FormEditor.dispose(FormEditor.java:395)
+	at com.ebay.kernel.ede.dal.codegen.plugin.editors.CodeGenEditor.dispose(CodeGenEditor.java:317)
+	at com.ebay.kernel.ede.dal.codegen.plugin.ActivatorUI.stop(ActivatorUI.java:113)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	... 13 more
+Root exception:
+java.lang.NullPointerException
+	at org.eclipse.ui.part.MultiPageEditorPart.deactivateSite(MultiPageEditorPart.java:938)
+	at org.eclipse.ui.part.MultiPageEditorPart.dispose(MultiPageEditorPart.java:513)
+	at org.eclipse.ui.forms.editor.FormEditor.dispose(FormEditor.java:395)
+	at com.ebay.kernel.ede.dal.codegen.plugin.editors.CodeGenEditor.dispose(CodeGenEditor.java:317)
+	at com.ebay.kernel.ede.dal.codegen.plugin.ActivatorUI.stop(ActivatorUI.java:113)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Thread.java:745)
+!SESSION 2017-07-28 10:13:57.105 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -showlocation -product com.ebay.tools.r2.product.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -showlocation -product com.ebay.tools.r2.product.ide
+
+!ENTRY org.eclipse.epp.mpc.core 4 0 2017-07-28 10:14:09.181
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.core [283]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"] because it is exposed to package 'org.apache.commons.logging' from resources org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"] and com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.commons.logging)(bundle-version>=1.0.4))
+     |
+    provide: osgi.wiring.bundle: org.apache.commons.logging
+  org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.http.impl.client)(version>=4.1.0))
+     |
+    export: osgi.wiring.package=org.apache.http.impl.client; uses:=org.apache.commons.logging
+  org.apache.httpcomponents.httpclient [osgi.identity; osgi.identity="org.apache.httpcomponents.httpclient"; type="osgi.bundle"; version:Version="4.3.6.v201411290715"]
+    import: (&(osgi.wiring.package=org.apache.commons.logging)(version>=1.1.1))
+     |
+    export: osgi.wiring.package: org.apache.commons.logging
+  com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.epp.mpc.ui 4 0 2017-07-28 10:14:09.803
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.epp.mpc.ui [285]
+  Unresolved requirement: Require-Bundle: org.eclipse.epp.mpc.core; bundle-version="1.3.0"
+    -> Bundle-SymbolicName: org.eclipse.epp.mpc.core; bundle-version="1.3.2.v20141216-2136"; singleton:="true"
+       org.eclipse.epp.mpc.core [283]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"] because it is exposed to package 'org.apache.commons.logging' from resources org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"] and com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.commons.logging)(bundle-version>=1.0.4))
+     |
+    provide: osgi.wiring.bundle: org.apache.commons.logging
+  org.apache.commons.logging [osgi.identity; osgi.identity="org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.1.1.v201101211721"]
+
+Chain 2:
+  org.eclipse.epp.mpc.core [osgi.identity; osgi.identity="org.eclipse.epp.mpc.core"; type="osgi.bundle"; version:Version="1.3.2.v20141216-2136"; singleton:="true"]
+    import: (&(osgi.wiring.package=org.apache.http.impl.client)(version>=4.1.0))
+     |
+    export: osgi.wiring.package=org.apache.http.impl.client; uses:=org.apache.commons.logging
+  org.apache.httpcomponents.httpclient [osgi.identity; osgi.identity="org.apache.httpcomponents.httpclient"; type="osgi.bundle"; version:Version="4.3.6.v201411290715"]
+    import: (&(osgi.wiring.package=org.apache.commons.logging)(version>=1.1.1))
+     |
+    export: osgi.wiring.package: org.apache.commons.logging
+  com.springsource.slf4j.org.apache.commons.logging [osgi.identity; osgi.identity="com.springsource.slf4j.org.apache.commons.logging"; type="osgi.bundle"; version:Version="1.6.1"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-07-28 10:15:03.885
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-07-28 10:15:03.885
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\belv'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 4 2017-07-28 10:15:14.589
+!MESSAGE Bad extension specification
+
+!ENTRY com.ebay.tools.r2.skipjar.generator 4 0 2017-07-28 10:15:14.606
+!MESSAGE startup class must implement org.eclipse.ui.IStartup
+
+!ENTRY com.ebay.tools.dede.ui 4 0 2017-07-28 10:19:07.567
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in com.ebay.kernel.ede.dal.codegen.plugin.ActivatorUI.stop() of bundle com.ebay.tools.dede.ui.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:847)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.ui.part.MultiPageEditorPart.deactivateSite(MultiPageEditorPart.java:938)
+	at org.eclipse.ui.part.MultiPageEditorPart.dispose(MultiPageEditorPart.java:513)
+	at org.eclipse.ui.forms.editor.FormEditor.dispose(FormEditor.java:395)
+	at com.ebay.kernel.ede.dal.codegen.plugin.editors.CodeGenEditor.dispose(CodeGenEditor.java:317)
+	at com.ebay.kernel.ede.dal.codegen.plugin.ActivatorUI.stop(ActivatorUI.java:113)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	... 13 more
+Root exception:
+java.lang.NullPointerException
+	at org.eclipse.ui.part.MultiPageEditorPart.deactivateSite(MultiPageEditorPart.java:938)
+	at org.eclipse.ui.part.MultiPageEditorPart.dispose(MultiPageEditorPart.java:513)
+	at org.eclipse.ui.forms.editor.FormEditor.dispose(FormEditor.java:395)
+	at com.ebay.kernel.ede.dal.codegen.plugin.editors.CodeGenEditor.dispose(CodeGenEditor.java:317)
+	at com.ebay.kernel.ede.dal.codegen.plugin.ActivatorUI.stop(ActivatorUI.java:113)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Thread.java:745)
